@@ -1,0 +1,69 @@
+<div class="alert alert-error" ng-show="error">{{errorMessage}}</div>
+
+<form class="form-horizontal">
+
+    <div class="control-group">
+        <label class="control-label" for="query_query">Query:</label>
+
+        <div class="controls">
+            <input type="text" id="query_query" ng-model="query.queryPattern"
+                   placeholder="the query" required min="2">
+        </div>
+        <label class="control-label" for="query_weight">Weight:</label>
+
+        <div class="controls">
+            <input type="text" id="query_weight" ng-model="query.weight"
+                   placeholder="weight" required min="2">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <hr/>
+        <div class="controls">
+            <button type="button" class="btn btn-primary"
+                    ng-disabled="!query.queryPattern" ng-hide="editMode"
+                    ng-click="addQuery(query)">Add Query
+            </button>
+            <button type="button" class="btn btn-primary"
+                    ng-show="editMode"
+                    ng-click="updateQuery(query)">Save Query
+            </button>
+            <button type="button" class="btn" ng-click="resetQueriesForm()">Reset</button>
+        </div>
+    </div>
+</form>
+
+<div class="alert alert-block alert-error notification" data-ng-show="deleteNotification">
+    <h6>Are you sure?</h6>
+
+    <div class="form-controls-alert">
+        <a href="" class="btn" data-ng-click="showDeleteNotification(false)">No</a>
+        <a href="" class="btn btn-danger" data-ng-click="remove(deleteId)">Yes</a>
+    </div>
+</div>
+
+<hr/>
+<h3>Queries List</h3>
+<div class="alert alert-info" ng-show="queriesList.length == 0">No queries found</div>
+<table class="table table-bordered table-striped" ng-show="queriesList.length > 0">
+    <thead>
+    <tr>
+        <th style="text-align: center; width: 25px;">Id</th>
+        <th style="text-align: center;">Query Pattern</th>
+        <th style="text-align: center;">Weight</th>
+        <th style="text-align: center;">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in queriesList | orderBy:predicate">
+        <td style="text-align: center;">{{item.id}}</td>
+        <td>{{item.queryPattern}}</td>
+        <td>{{item.weight}}</td>
+        <td style="width: 100px; text-align: center;">
+            <button class="btn btn-mini btn-danger" data-ng-click="showDeleteNotification(true, item.id)">Remove
+            </button>
+            <button class="btn btn-mini btn-success" ng-click="editQuery(item)">Edit</button>
+        </td>
+    </tr>
+    </tbody>
+</table>

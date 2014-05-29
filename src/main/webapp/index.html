@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="AngularSpringApp">
+<head>
+    <meta charset="utf-8">
+    <title>GAI Analyzer</title>
+    <link rel="stylesheet" href="resources/css/app.css"/>
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css"/>
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">-->
+</head>
+<body>
+<div id="wrapper">
+
+    <ul class="menu">
+        <li><a href="#/keywords_providers">Keywords Providers</a></li>
+        <li><a href="#/keyword_values">Keyword Values</a></li>
+        <li><a href="#/base_queries">Base Queries</a></li>
+        <li><a href="#/analyzer_queries">Analyzer Queries</a></li>
+        <li><a href="#/analyzer_safe_guard_queries">Analyzer SafeGuard</a></li>
+    </ul>
+    <hr class=""/>
+    <div ng-view></div>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script src="resources/js/lib/angular/angular.js"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/services.js"></script>
+<script src="resources/js/controllers/AnalyzerQueries.js"></script>
+<script src="resources/js/filters.js"></script>
+<script src="resources/js/directives.js"></script>
+</body>
+</html>
